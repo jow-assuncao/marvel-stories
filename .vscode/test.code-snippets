@@ -1,0 +1,8 @@
+{
+  "example": {
+    "prefix": "example",
+    "body": "example snippet",
+    "description": "example snippet",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
+}

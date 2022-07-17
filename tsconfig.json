@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "rootDir": "src",
+    "baseUrl": "src",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false
+  },
+  "include": ["src"],
+  "exclude": []
+}
