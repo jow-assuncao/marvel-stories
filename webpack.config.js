@@ -1,38 +1,51 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+
+require('dotenv').config()
 
 module.exports = {
   // Entry point that indicates where
   // should the webpack starts bundling
-  entry: "./src/index.tsx",
-  mode: "development",
+  entry: './src/index.tsx',
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.css$/, //checks for .css files
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   // Options for resolving module requests
   // extensions that are used
-  resolve: { extensions: ["*", ".ts", ".tsx", ".js", ".jsx"] },
+  resolve: {
+    alias: {
+      services: path.resolve(__dirname, 'src/services/'),
+      libs: path.resolve(__dirname, 'src/libs/'),
+      views: path.resolve(__dirname, 'src/views/'),
+    },
+    extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
+  },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: './public/index.html',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
 
   // Output point is where webpack should
   // output the bundles and assets
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
-};
+}
