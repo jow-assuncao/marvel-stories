@@ -1,5 +1,11 @@
+import { CharactersView } from './views/Characters'
+
 const App = () => {
-  return <div>App</div>
+  return (
+    <div>
+      <CharactersView />
+    </div>
+  )
 }
 
 export default App
